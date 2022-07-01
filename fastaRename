@@ -1,0 +1,5 @@
+#!/bin/bash
+
+SequenceFile=$1
+SequencePrefix=$2
+awk -v b=$SequencePrefix 'BEGIN{i=0}{ if(/>/){gsub($1,++i);print ">"b"_" $1}else{print $0}}' $SequenceFile
